@@ -2,9 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class CarrouselPrj extends StatelessWidget {
-  final List<String> texts;
+  final List<Map<String, String>> projects; // ✅ Lista de mapas con 'name' y 'author'
 
-  const CarrouselPrj({super.key, required this.texts});
+  const CarrouselPrj({super.key, required this.projects});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +13,9 @@ class CarrouselPrj extends StatelessWidget {
         autoPlay: true,
         aspectRatio: 3.0,
         enlargeCenterPage: true,
+        viewportFraction: 0.8, // Optional: ensures there’s space between items
       ),
-      items: texts.map((text) {
+      items: projects.map((project) { // ✅ Iteramos sobre la lista de proyectos
         return Container(
           margin: EdgeInsets.all(5.0),
           child: ClipRRect(
@@ -23,35 +24,48 @@ class CarrouselPrj extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 Image.asset(
-                  'assets/images/imgproyecto.png',
+                  'assets/images/imgproyecto.png',  // Ensure you have the correct image path
                   fit: BoxFit.cover,
                   width: 1000.0,
                 ),
-                // Texto centrado sobre la imagen
                 Align(
                   alignment: Alignment.center,
-                  child: Text(
-                    text,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      shadows: [
-                        Shadow(
-                          blurRadius: 10.0,
-                          color: Colors.black.withOpacity(0.6),
-                          offset: Offset(2.0, 2.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        project["name"] ?? "Sin Nombre",  // ✅ Extraemos el nombre
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            Shadow(
+                              blurRadius: 10.0,
+                              color: Colors.black.withOpacity(0.6),
+                              offset: Offset(2.0, 2.0),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    textAlign: TextAlign.center,
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        project["author"] ?? "Autor Desconocido", // ✅ Extraemos el autor
+                        style: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 16,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
           ),
         );
-      }).toList(),
+      }).toList(),  // We convert the map into a list of widgets
     );
   }
 }

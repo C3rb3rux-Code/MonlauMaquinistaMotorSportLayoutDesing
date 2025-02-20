@@ -14,10 +14,19 @@ void main() {
   runApp(const MyApp());
 }
 
-final List<String> prjTexts = [
-  "Proyecto 1",
-  "Proyecto 2",
-  "Proyecto 3",
+final List<Map<String, String>> prjTexts = [
+  {
+    "name": "proyecto1",
+    "author": "unknow"
+  },
+  {
+    "name": "proyecto2",
+    "author": "unknow"
+  },
+  {
+    "name": "proyecto3",
+    "author": "unknow"
+  },
 ];
 
 final List<Map<String, String>> items = [
@@ -140,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Row(
-              children: [Expanded(child: VideoPlayerScreen())],
+              children: [Expanded(child: VideoPlayerScreen(videoPath: 'assets/videos/e3d282eafaa9801e6243a4e0b5f4602c6826e7d0.mp4'))],
             ),
             Row(children: [
               Expanded(
@@ -155,7 +164,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Expanded(
                   child: InkWell(
                     onTap: _handleTapCarroussel,
-                    child: CarrouselPrj(texts: prjTexts),
+                    child: CarrouselPrj(projects: prjTexts),
                   ))]),
             Row(children: [
               CustomPaint(size: const Size(100, 10), painter: LinePainter())
@@ -172,10 +181,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
+                      print(index);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProjectIndividualLayout(index: _selectedIndex),
+                          builder: (context) => ProjectIndividualLayout(index: _selectedIndex, path: '',),
                         ),
                       );
                     },
