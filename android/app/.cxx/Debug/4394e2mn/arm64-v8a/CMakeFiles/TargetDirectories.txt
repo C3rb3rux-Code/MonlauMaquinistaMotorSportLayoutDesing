@@ -1,0 +1,2 @@
+C:/Users/polcr/Documents/Monlau/Teoria Flutter/layoutsdesing/android/app/.cxx/Debug/4394e2mn/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/polcr/Documents/Monlau/Teoria Flutter/layoutsdesing/android/app/.cxx/Debug/4394e2mn/arm64-v8a/CMakeFiles/rebuild_cache.dir
