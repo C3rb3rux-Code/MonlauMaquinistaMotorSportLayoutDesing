@@ -72,7 +72,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
-
   int _currentIndex = 0; // Guardará el índice del carrusel
 
   void _onItemTapped(int index) {
@@ -83,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _handleTap() {
+  void _handleTapCarroussel() {
     print("Se hizo clic en la imagen $_currentIndex");
 
     if (_currentIndex == 0) {
@@ -95,7 +94,15 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-
+  void _handleTapPrj() {
+    if (_currentIndex == 0) {
+      print("Abrir detalle del Proyecto 1");
+    } else if (_currentIndex == 1) {
+      print("Abrir detalle del Proyecto 2");
+    } else {
+      print("Otra acción para el índice $_currentIndex");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +154,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(children: [
               Expanded(
                   child: InkWell(
-                    onTap: _handleTap,
+                    onTap: _handleTapCarroussel,
                     child: CarrouselPrj(texts: prjTexts),
                   ))]),
             Row(children: [
@@ -165,7 +172,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                      print(index);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProjectIndividualLayout(index: _selectedIndex),
+                        ),
+                      );
                     },
                     child:
                     CustomCard(
