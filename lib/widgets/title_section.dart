@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TitleSection extends StatelessWidget {
-  const TitleSection({super.key, required this.title, required this.subtitle});
+  const TitleSection({super.key, required this.title, required this.subtitle, required this.onTitleTap, required this.onSubtitleTap});
 
   final String title;
   final String subtitle;
+  final VoidCallback onTitleTap;
+  final VoidCallback onSubtitleTap;
 
   @override
   Widget build(BuildContext context) {
@@ -17,21 +19,29 @@ class TitleSection extends StatelessWidget {
             children: [
               SizedBox(
                 width: 150,
-                child:
-                Text(
-                  title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                child: GestureDetector(
+                  onTap: onTitleTap, // Acción cuando se toca el título
+                  child: Text(
+                    title,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+                  ),
                 ),
               )
-
             ],
           ),
           const SizedBox(width: 115), // Separador entre el título y el subtítulo
-          Text(
-            subtitle,
-            style: TextStyle(color: Color.fromRGBO(0, 82, 158, 1), fontWeight: FontWeight.bold, fontSize: 17),
+          GestureDetector(
+            onTap: onSubtitleTap, // Acción cuando se toca el subtítulo
+            child: Text(
+              subtitle,
+              style: const TextStyle(
+                color: Color.fromRGBO(0, 82, 158, 1),
+                fontWeight: FontWeight.bold,
+                fontSize: 17,
+              ),
+            ),
           ),
         ],
       ),

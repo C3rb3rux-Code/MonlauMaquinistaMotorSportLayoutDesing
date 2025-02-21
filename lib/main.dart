@@ -15,18 +15,9 @@ void main() {
 }
 
 final List<Map<String, String>> prjTexts = [
-  {
-    "name": "proyecto1",
-    "author": "unknow"
-  },
-  {
-    "name": "proyecto2",
-    "author": "unknow"
-  },
-  {
-    "name": "proyecto3",
-    "author": "unknow"
-  },
+  {"name": "proyecto1", "author": "unknow"},
+  {"name": "proyecto2", "author": "unknow"},
+  {"name": "proyecto3", "author": "unknow"},
 ];
 
 final List<Map<String, String>> items = [
@@ -129,11 +120,26 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home, color: Colors.white), label: 'Inicio', backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.car_crash, color: Colors.white), label: 'Proyectos', backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.map, color: Colors.white), label: 'Mapa', backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.flag, color: Colors.white), label: 'Ponentes', backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.add_home_work_sharp, color: Colors.white), label: 'Expositores', backgroundColor: Colors.black),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home, color: Colors.white),
+              label: 'Inicio',
+              backgroundColor: Colors.black),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.car_crash, color: Colors.white),
+              label: 'Proyectos',
+              backgroundColor: Colors.black),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.map, color: Colors.white),
+              label: 'Mapa',
+              backgroundColor: Colors.black),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.flag, color: Colors.white),
+              label: 'Ponentes',
+              backgroundColor: Colors.black),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add_home_work_sharp, color: Colors.white),
+              label: 'Expositores',
+              backgroundColor: Colors.black),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
@@ -149,13 +155,22 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Row(
-              children: [Expanded(child: VideoPlayerScreen(videoPath: 'assets/videos/e3d282eafaa9801e6243a4e0b5f4602c6826e7d0.mp4'))],
+              children: [
+                Expanded(
+                    child: VideoPlayerScreen(
+                  videoPath:
+                      'assets/videos/e3d282eafaa9801e6243a4e0b5f4602c6826e7d0.mp4',
+                ))
+              ],
             ),
             Row(children: [
               Expanded(
                   child: TitleSection(
-                      title: 'DESCUBRE TODOS LOS PROYECTOS',
-                      subtitle: 'PROYECTOS'))
+                title: 'DESCUBRE TODOS LOS PROYECTOS',
+                subtitle: 'PROYECTOS',
+                onTitleTap: () {},
+                onSubtitleTap: () {},
+              ))
             ]),
             Row(children: [
               CustomPaint(size: const Size(100, 10), painter: LinePainter())
@@ -163,16 +178,21 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(children: [
               Expanded(
                   child: InkWell(
-                    onTap: _handleTapCarroussel,
-                    child: CarrouselPrj(projects: prjTexts),
-                  ))]),
+                onTap: _handleTapCarroussel,
+                child: CarrouselPrj(projects: prjTexts),
+              ))
+            ]),
             Row(children: [
               CustomPaint(size: const Size(100, 10), painter: LinePainter())
             ]),
             Row(children: [
               Expanded(
                   child: TitleSection(
-                      title: 'DESCUBRE LOS PONENTES', subtitle: 'PONENTES'))
+                title: 'DESCUBRE LOS PONENTES',
+                subtitle: 'PONENTES',
+                onTitleTap: () {},
+                onSubtitleTap: () {},
+              ))
             ]),
             Expanded(
               child: ListView.builder(
@@ -185,18 +205,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProjectIndividualLayout(index: _selectedIndex, path: '',),
+                          builder: (context) =>
+                              ProjectIndividualLayout(index: _selectedIndex),
                         ),
                       );
                     },
-                    child:
-                    CustomCard(
+                    child: CustomCard(
                         title: items[index]["title"] ?? "Título por defecto",
                         time: items[index]["time"] ?? "00:00",
                         imageUrl: items[index]["imageUrl"] ??
                             "https://via.placeholder.com/150",
-                        description: items[index]["description"] ??
-                            "Sin descripción"),
+                        description:
+                            items[index]["description"] ?? "Sin descripción"),
                   );
                 },
               ),
