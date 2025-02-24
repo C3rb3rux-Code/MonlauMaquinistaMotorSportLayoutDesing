@@ -37,19 +37,6 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout> with 
               height: 300,
               child: VideoPlayerScreen(videoPath: ''),
             ),
-            /*Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: TitleSection(
-                    title: titlePrj,
-                    subtitle: "Autores",
-                    onTitleTap: () => _tabController.animateTo(0),
-                    onSubtitleTap: () => _tabController.animateTo(1),
-                  ),
-                ),
-              ],
-            ),*/
             TabBar(
               controller: _tabController,
               indicatorColor: Colors.blue,
@@ -65,9 +52,9 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout> with 
               child: TabBarView(
                 controller: _tabController,
                 children: [
-                  _buildDetailsSection(),
+                  _buildMemorySection(),
                   _buildAuthorsSection(),
-                  _buildResourcesSection(),
+                  _buildCVSection(),
                 ],
               ),
             ),
@@ -77,15 +64,15 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout> with 
     );
   }
 
-  Widget _buildDetailsSection() {
+  Widget _buildMemorySection() { // Memoria del proyecto
     return Center(child: Text("Información detallada del proyecto"));
   }
 
-  Widget _buildAuthorsSection() {
+  Widget _buildAuthorsSection() { // Autores del proyecto
     return Center(child: Text("Autores del proyecto"));
   }
 
-  Widget _buildResourcesSection() {
+  Widget _buildCVSection() { // CVs de los autores
     return Center(child: Text("Recursos y enlaces útiles"));
   }
 }

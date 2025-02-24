@@ -6,6 +6,7 @@ class CarrouselImg extends StatelessWidget {
 
   const CarrouselImg({super.key, required this.imgList});
 
+  @override
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(

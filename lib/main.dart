@@ -72,7 +72,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
-  int _currentIndex = 0; // Guardará el índice del carrusel
+  final int _currentIndex = 0; // Guardará el índice del carrusel
 
   void _onItemTapped(int index) {
     setState(() {
