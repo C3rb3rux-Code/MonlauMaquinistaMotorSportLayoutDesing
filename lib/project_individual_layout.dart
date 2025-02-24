@@ -7,10 +7,12 @@ class ProjectIndividualLayout extends StatefulWidget {
   const ProjectIndividualLayout({super.key, required this.index});
 
   @override
-  _ProjectIndividualLayoutState createState() => _ProjectIndividualLayoutState();
+  _ProjectIndividualLayoutState createState() =>
+      _ProjectIndividualLayoutState();
 }
 
-class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout> with SingleTickerProviderStateMixin {
+class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -82,7 +84,37 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout> with 
   }
 
   Widget _buildAuthorsSection() {
-    return Center(child: Text("Autores del proyecto"));
+    return Center(
+      child: Column(
+        children: [
+          Row(children: [
+            SizedBox(
+              width: 100,
+              height: 100,
+              child: Expanded(child: Image.network("")),
+            ),
+            SizedBox(
+              width: 100,
+              height: 100,
+              child: Expanded(child: Image.network("")),
+            )
+          ],),
+          Row(children: [
+            SizedBox(
+              width: 100,
+              height: 100,
+              child: Expanded(child: Image.network("")),
+            ),
+            SizedBox(
+              width: 100,
+              height: 100,
+              child: Expanded(child: Image.network("")),
+            )
+          ],)
+        ],
+      ),
+
+    );
   }
 
   Widget _buildResourcesSection() {
