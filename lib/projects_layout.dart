@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:layoutsdesing/widgets/project_cards.dart';
 import 'widgets/line_painter.dart';
-import 'widgets/carrousel_img.dart';
+import 'project_individual_layout.dart';
 
 class ProjectsLayout extends StatefulWidget {
   const ProjectsLayout({super.key});
@@ -61,6 +61,9 @@ class _ProjectsLayout extends State<ProjectsLayout> {
 
   @override
   Widget build(BuildContext context) {
+
+    int _selectedIndex = 0;
+
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -134,13 +137,18 @@ class _ProjectsLayout extends State<ProjectsLayout> {
                 padding: EdgeInsets.zero,
                 itemCount: items.length,
                 itemBuilder: (context, index) {
-
                   return InkWell(
                     onTap: () {
-
+                      print(index);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ProjectIndividualLayout(index: _selectedIndex),
+                        ),
+                      );
                     },
-                    child:
-                    ProjectCards(
+                    child: ProjectCards(
                         title: items[index]["title"] ?? "Proyecto",
                         author: items[index]["author"] ?? "autores"),
                   );

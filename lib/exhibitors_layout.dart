@@ -8,6 +8,7 @@ class ExhibitorsLayout extends StatefulWidget {
 }
 
 class _ExhibitorsLayout extends State<ExhibitorsLayout> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
