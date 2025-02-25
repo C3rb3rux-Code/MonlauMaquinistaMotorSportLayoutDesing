@@ -41,6 +41,8 @@ final List<Map<String, String>> items = [
   },
 ];
 
+// Nota mental si pones stls se te genera una clase para widget...
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -72,7 +74,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
-  final int _currentIndex = 0; // Guardará el índice del carrusel
+
+  int _currentIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -85,16 +88,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void _handleTapCarroussel() {
     print("Se hizo clic en la imagen $_currentIndex");
 
-    if (_currentIndex == 0) {
-      print("Abrir detalle del Proyecto 1");
-    } else if (_currentIndex == 1) {
-      print("Abrir detalle del Proyecto 2");
-    } else {
-      print("Otra acción para el índice $_currentIndex");
-    }
-  }
-
-  void _handleTapPrj() {
     if (_currentIndex == 0) {
       print("Abrir detalle del Proyecto 1");
     } else if (_currentIndex == 1) {
@@ -169,7 +162,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: 'DESCUBRE TODOS LOS PROYECTOS',
                 subtitle: 'PROYECTOS',
                 onTitleTap: () {},
-                onSubtitleTap: () {},
+                onSubtitleTap: () {
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        ProjectsLayout(),
+                  );
+                },
               ))
             ]),
             Row(children: [
@@ -202,13 +200,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   return InkWell(
                     onTap: () {
                       print(index);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              ProjectIndividualLayout(index: _selectedIndex),
-                        ),
-                      );
                     },
                     child: CustomCard(
                         title: items[index]["title"] ?? "Título por defecto",

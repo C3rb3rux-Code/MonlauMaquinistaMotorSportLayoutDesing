@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 import 'widgets/video_player_screen.dart';
+import 'widgets/cv_card.dart';
 
 class ProjectIndividualLayout extends StatefulWidget {
   final int index;
@@ -7,10 +9,12 @@ class ProjectIndividualLayout extends StatefulWidget {
   const ProjectIndividualLayout({super.key, required this.index});
 
   @override
-  _ProjectIndividualLayoutState createState() => _ProjectIndividualLayoutState();
+  _ProjectIndividualLayoutState createState() =>
+      _ProjectIndividualLayoutState();
 }
 
-class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout> with SingleTickerProviderStateMixin {
+class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -44,17 +48,18 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout> with 
               unselectedLabelColor: Colors.grey,
               tabs: [
                 Tab(text: titlePrj),
+                Tab(text: "Memoria"),
                 Tab(text: "Autores"),
-                Tab(text: "CVs"),
               ],
             ),
             Expanded(
               child: TabBarView(
                 controller: _tabController,
                 children: [
+                  _buildDetailsSection(),
                   _buildMemorySection(),
-                  _buildAuthorsSection(),
-                  _buildCVSection(),
+                  _buildAuthorsSection()
+
                 ],
               ),
             ),
@@ -68,11 +73,39 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout> with 
     return Center(child: Text("Información detallada del proyecto"));
   }
 
+  Widget _buildMemorySection() {
+    return Scaffold(
+      body: PDF().fromPath('file:///C:/Users/polcr/Downloads/DAM-M6-UF3-PAC1-CreusPol.pdf')
+    );
+  }
+
+  Widget _buildAuthorsSection() {
+    return Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0, top: 10.0),
+                child: CVCard(imagePath: '', name: "hola"),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 5.0, top: 10.0),
+                child: CVCard(imagePath: '', name: "hola"),
+              )
+            ],
+          )
+        ],
+      ),
+    );
+
   Widget _buildAuthorsSection() { // Autores del proyecto
     return Center(child: Text("Autores del proyecto"));
   }
 
   Widget _buildCVSection() { // CVs de los autores
     return Center(child: Text("Recursos y enlaces útiles"));
+
   }
 }

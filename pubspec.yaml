@@ -37,6 +37,7 @@ dependencies:
   video_player: ^2.8.2
 
   carousel_slider: any
+  flutter_cached_pdfview: ^0.4.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
