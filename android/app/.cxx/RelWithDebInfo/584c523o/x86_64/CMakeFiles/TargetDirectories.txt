@@ -1,2 +1,0 @@
-C:/Users/polcr/Documents/Monlau/TeoriaFlutter/layoutsdesing/android/app/.cxx/RelWithDebInfo/584c523o/x86_64/CMakeFiles/edit_cache.dir
-C:/Users/polcr/Documents/Monlau/TeoriaFlutter/layoutsdesing/android/app/.cxx/RelWithDebInfo/584c523o/x86_64/CMakeFiles/rebuild_cache.dir

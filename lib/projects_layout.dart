@@ -63,8 +63,6 @@ class _ProjectsLayout extends State<ProjectsLayout> {
   @override
   Widget build(BuildContext context) {
 
-    int _selectedIndex = 0;
-
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -144,8 +142,8 @@ class _ProjectsLayout extends State<ProjectsLayout> {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                                ProjectIndividualLayout(index: index),
-
+                                ProjectIndividualLayout(index: index)
+                      ));
                     },
                     child: ProjectCards(
                         title: items[index]["title"] ?? "Proyecto",
