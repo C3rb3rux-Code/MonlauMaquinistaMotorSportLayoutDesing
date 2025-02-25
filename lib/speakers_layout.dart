@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:layoutsdesing/widgets/line_painter.dart';
-import 'package:layoutsdesing/widgets/project_cards.dart';
+import 'package:layoutsdesing/widgets/speakers_card.dart';
 
 class SpeakersLayout extends StatefulWidget {
   const SpeakersLayout({super.key});
@@ -14,38 +14,47 @@ class _SpeakersLayout extends State<SpeakersLayout> {
   final List<Map<String, String>> items = [
     {
       "title": "Titulo ponencia 1",
+      "hour": "10:00",
       "author": "Autores.",
     },
     {
       "title": "Titulo ponencia 2",
+      "hour": "10:00",
       "author": "Autores.",
     },
     {
       "title": "Titulo ponencia 3",
+      "hour": "10:00",
       "author": "Autores.",
     },
     {
       "title": "Titulo ponencia 4",
+      "hour": "10:00",
       "author": "Autores.",
     },
     {
       "title": "Titulo ponencia 5",
+      "hour": "10:00",
       "author": "Autores.",
     },
     {
       "title": "Titulo ponencia 6",
+      "hour": "10:00",
       "author": "Autores.",
     },
     {
       "title": "Titulo ponencia 7",
+      "hour": "10:00",
       "author": "Autores.",
     },
     {
       "title": "Titulo ponencia 8",
+      "hour": "10:00",
       "author": "Autores.",
     },
     {
       "title": "Titulo ponencia 9",
+      "hour": "10:00",
       "author": "Autores.",
     },
   ];
@@ -106,9 +115,11 @@ class _SpeakersLayout extends State<SpeakersLayout> {
 
                         },
                         child:
-                        ProjectCards(
+                        SpeakerCard(
                             title: items[index]["title"] ?? "Proyecto",
-                            author: items[index]["author"] ?? "autores"),
+                            hour: items[index]["hour"] ?? "00:00",
+                            author: items[index]["author"] ?? "autores",
+                        ),
                       );
                     },
                   )),

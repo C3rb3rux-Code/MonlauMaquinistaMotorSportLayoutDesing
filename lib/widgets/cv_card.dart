@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ImageWithName extends StatelessWidget {
+class CVCard extends StatelessWidget {
   final String imagePath;
   final String name;
   final double imageSize;
 
-  const ImageWithName({
+  const CVCard({
     super.key,
     required this.imagePath,
     required this.name,

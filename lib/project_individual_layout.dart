@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/video_player_screen.dart';
+import 'widgets/cv_card.dart';
 
 class ProjectIndividualLayout extends StatefulWidget {
   final int index;
@@ -59,8 +60,8 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
               unselectedLabelColor: Colors.grey,
               tabs: [
                 Tab(text: titlePrj),
+                Tab(text: "Memoria"),
                 Tab(text: "Autores"),
-                Tab(text: "CVs"),
               ],
             ),
             Expanded(
@@ -68,8 +69,8 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
                 controller: _tabController,
                 children: [
                   _buildDetailsSection(),
-                  _buildAuthorsSection(),
-                  _buildResourcesSection(),
+                  _buildMemorySection(),
+                  _buildAuthorsSection()
                 ],
               ),
             ),
@@ -83,41 +84,31 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
     return Center(child: Text("Información detallada del proyecto"));
   }
 
+  Widget _buildMemorySection() {
+    return Center(child: Text("Cargar PDF"));
+  }
+
   Widget _buildAuthorsSection() {
     return Center(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(children: [
-            SizedBox(
-              width: 100,
-              height: 100,
-              child: Expanded(child: Image.network("")),
+            Padding(
+              padding: const EdgeInsets.only(left: 5.0, top: 10.0),
+              child:
+              CVCard(imagePath: '', name: "hola"),
             ),
-            SizedBox(
-              width: 100,
-              height: 100,
-              child: Expanded(child: Image.network("")),
+            Padding(
+              padding: const EdgeInsets.only(right: 5.0, top: 10.0),
+              child:
+              CVCard(imagePath: '', name: "hola"),
             )
-          ],),
-          Row(children: [
-            SizedBox(
-              width: 100,
-              height: 100,
-              child: Expanded(child: Image.network("")),
-            ),
-            SizedBox(
-              width: 100,
-              height: 100,
-              child: Expanded(child: Image.network("")),
-            )
-          ],)
+          ],
+          )
         ],
       ),
 
     );
-  }
-
-  Widget _buildResourcesSection() {
-    return Center(child: Text("Recursos y enlaces útiles"));
   }
 }
