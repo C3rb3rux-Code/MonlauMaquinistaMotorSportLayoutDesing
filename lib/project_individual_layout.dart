@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 import 'widgets/video_player_screen.dart';
 import 'widgets/cv_card.dart';
 
@@ -40,19 +41,6 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
               height: 300,
               child: VideoPlayerScreen(videoPath: ''),
             ),
-            /*Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: TitleSection(
-                    title: titlePrj,
-                    subtitle: "Autores",
-                    onTitleTap: () => _tabController.animateTo(0),
-                    onSubtitleTap: () => _tabController.animateTo(1),
-                  ),
-                ),
-              ],
-            ),*/
             TabBar(
               controller: _tabController,
               indicatorColor: Colors.blue,
@@ -85,7 +73,9 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
   }
 
   Widget _buildMemorySection() {
-    return Center(child: Text("Cargar PDF"));
+    return Scaffold(
+      body: PDF().fromPath('file:///C:/Users/polcr/Downloads/DAM-M6-UF3-PAC1-CreusPol.pdf')
+    );
   }
 
   Widget _buildAuthorsSection() {
@@ -93,22 +83,20 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 5.0, top: 10.0),
-              child:
-              CVCard(imagePath: '', name: "hola"),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 5.0, top: 10.0),
-              child:
-              CVCard(imagePath: '', name: "hola"),
-            )
-          ],
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0, top: 10.0),
+                child: CVCard(imagePath: '', name: "hola"),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 5.0, top: 10.0),
+                child: CVCard(imagePath: '', name: "hola"),
+              )
+            ],
           )
         ],
       ),
-
     );
   }
 }

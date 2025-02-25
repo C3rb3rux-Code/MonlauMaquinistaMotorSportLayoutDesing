@@ -20,7 +20,7 @@ class TitleSection extends StatelessWidget {
               SizedBox(
                 width: 150,
                 child: GestureDetector(
-                  onTap: onTitleTap, // Acción cuando se toca el título
+                  onTap: onTitleTap,
                   child: Text(
                     title,
                     maxLines: 2,

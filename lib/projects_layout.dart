@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layoutsdesing/project_individual_layout.dart';
 import 'package:layoutsdesing/widgets/project_cards.dart';
 import 'widgets/line_painter.dart';
 import 'widgets/carrousel_img.dart';
@@ -134,13 +135,16 @@ class _ProjectsLayout extends State<ProjectsLayout> {
                 padding: EdgeInsets.zero,
                 itemCount: items.length,
                 itemBuilder: (context, index) {
-
                   return InkWell(
                     onTap: () {
-
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ProjectIndividualLayout(index: index),
+                          ));
                     },
-                    child:
-                    ProjectCards(
+                    child: ProjectCards(
                         title: items[index]["title"] ?? "Proyecto",
                         author: items[index]["author"] ?? "autores"),
                   );
