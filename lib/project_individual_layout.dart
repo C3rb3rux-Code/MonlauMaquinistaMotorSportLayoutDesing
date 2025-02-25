@@ -59,6 +59,7 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
                   _buildDetailsSection(),
                   _buildMemorySection(),
                   _buildAuthorsSection()
+
                 ],
               ),
             ),
@@ -68,7 +69,7 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
     );
   }
 
-  Widget _buildDetailsSection() {
+  Widget _buildMemorySection() { // Memoria del proyecto
     return Center(child: Text("Información detallada del proyecto"));
   }
 
@@ -98,5 +99,13 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
         ],
       ),
     );
+
+  Widget _buildAuthorsSection() { // Autores del proyecto
+    return Center(child: Text("Autores del proyecto"));
+  }
+
+  Widget _buildCVSection() { // CVs de los autores
+    return Center(child: Text("Recursos y enlaces útiles"));
+
   }
 }

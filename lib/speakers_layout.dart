@@ -59,6 +59,7 @@ class _SpeakersLayout extends State<SpeakersLayout> {
     },
   ];
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
