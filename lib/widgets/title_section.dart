@@ -19,7 +19,7 @@ class TitleSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 width: 150,
@@ -37,7 +37,7 @@ class TitleSection extends StatelessWidget {
           ),
           SizedBox(width: screenWidth * 0.29), // Separador entre el título y el subtítulo
           GestureDetector(
-            onTap: onSubtitleTap, // Acción cuando se toca el subtítulo
+            onTap: onSubtitleTap,
             child:
             Text(
               subtitle,
@@ -46,8 +46,8 @@ class TitleSection extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 17,
               ),
-            ),)
-          ,
+            ),
+          ),
         ],
       ),
     );

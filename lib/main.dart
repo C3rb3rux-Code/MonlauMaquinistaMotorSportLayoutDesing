@@ -163,10 +163,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 subtitle: 'PROYECTOS',
                 onTitleTap: () {},
                 onSubtitleTap: () {
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        ProjectsLayout(),
-                  );
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProjectsLayout()));
                 },
               ))
             ]),
@@ -189,7 +189,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: 'DESCUBRE LOS PONENTES',
                 subtitle: 'PONENTES',
                 onTitleTap: () {},
-                onSubtitleTap: () {},
+                onSubtitleTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SpeakersLayout()));
+                },
               ))
             ]),
             Expanded(

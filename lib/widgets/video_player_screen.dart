@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
-  // Add a videoPath parameter to allow different videos
   final String videoPath;
 
-  // The constructor now accepts a video path
   const VideoPlayerScreen({super.key, required this.videoPath});
 
   @override
@@ -18,13 +16,12 @@ class _VideoScreenState extends State<VideoPlayerScreen> {
   @override
   void initState() {
     super.initState();
-    // Initialize the VideoPlayerController using the videoPath parameter
     _controller = VideoPlayerController.asset(widget.videoPath)
       ..initialize().then((_) {
         setState(() {});
         _controller.play();
         _controller.setLooping(true);
-        _controller.setVolume(0.0); // Mute video
+        _controller.setVolume(0.0);
       });
   }
 
@@ -41,6 +38,6 @@ class _VideoScreenState extends State<VideoPlayerScreen> {
       aspectRatio: _controller.value.aspectRatio,
       child: VideoPlayer(_controller),
     )
-        : const Center(child: CircularProgressIndicator()); // Loader while video loads
+        : const Center(child: CircularProgressIndicator());
   }
 }

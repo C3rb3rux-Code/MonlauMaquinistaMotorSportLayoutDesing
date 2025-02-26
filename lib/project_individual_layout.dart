@@ -59,7 +59,6 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
                   _buildDetailsSection(),
                   _buildMemorySection(),
                   _buildAuthorsSection()
-
                 ],
               ),
             ),
@@ -71,13 +70,27 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
 
   Widget _buildDetailsSection() {
     return Scaffold(
-        body: Text("Detail")
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 15.0, top: 15.0),
+              child:
+                Text("Descripción", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 15.0, top: 15.0),
+              child:
+                Text("texto descripcion objeto"),
+            )
+          ],
+        )
     );
   }
 
   Widget _buildMemorySection() {
     return Scaffold(
-      body: PDF().fromPath('file:///C:/Users/polcr/Downloads/DAM-M6-UF3-PAC1-CreusPol.pdf')
+      body: PDF().fromPath('C:/Users/polcr/Downloads/DAM-M6-UF3-PAC1-CreusPol.pdf')
     );
   }
 
@@ -87,13 +100,14 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 5.0, top: 10.0),
+                padding: const EdgeInsets.only(right: 5.0, top: 10.0, left: 8),
                 child: CVCard(imagePath: '', name: "hola"),
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 5.0, top: 10.0),
+                padding: const EdgeInsets.only(left: 5.0, top: 10.0, right: 8),
                 child: CVCard(imagePath: '', name: "hola"),
               )
             ],
