@@ -104,11 +104,11 @@ class _ProjectIndividualLayoutState extends State<ProjectIndividualLayout>
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 5.0, top: 10.0, left: 8),
-                child: CVCard(imagePath: '', name: "hola"),
+                child: CVCard(imagePath: '', name: "hola", hour: 20,),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 5.0, top: 10.0, right: 8),
-                child: CVCard(imagePath: '', name: "hola"),
+                child: CVCard(imagePath: '', name: "hola", hour: 20,),
               )
             ],
           )
