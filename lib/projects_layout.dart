@@ -150,7 +150,8 @@ class _ProjectsLayout extends State<ProjectsLayout> {
                         author: items[index]["author"] ?? "autores"),
                   );
                 },
-              )),
+              )
+              ),
             ],
           ),
         ),

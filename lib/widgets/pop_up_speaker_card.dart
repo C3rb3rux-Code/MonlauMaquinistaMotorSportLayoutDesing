@@ -24,36 +24,40 @@ class SpeakersPopUpCArd extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         width: MediaQuery.of(context).size.width * 0.8,
         height: 500,
-        child: Row(
+        child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: SizedBox(
-                    width: 170,
-                    height: 200,
-                    child: Image.network(imageUrl, width: 100, height: 200),
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: SizedBox(
+                        width: 170,
+                        height: 200,
+                        child: Image.network(imageUrl, width: 100, height: 200),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            const SizedBox(height: 15),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  speakerName,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 16),
+                const SizedBox(width: 15), // Cambiado a width
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      speakerName,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                    Text(
+                      hour.toString(), // Convertir a String
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  ],
                 ),
-                Text(
-                  hour as String,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 16),
-                )
               ],
             ),
             const Spacer(),

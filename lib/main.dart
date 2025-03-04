@@ -205,8 +205,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemBuilder: (context, index) {
                   return InkWell(
                     onTap: () {
-                      print(index);
-                      SpeakersPopUpCArd(speakerName: 'Elon Musk', imageUrl: 'https://m.media-amazon.com/images/I/81fYiMk1D0L.jpg', hour: 15,);
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return SpeakersPopUpCArd(
+                            speakerName: 'Elon Musk',
+                            imageUrl: 'https://m.media-amazon.com/images/I/81fYiMk1D0L.jpg',
+                            hour: 15,
+                          );
+                        },
+                      );
                     },
                     child: CustomCard(
                         title: items[index]["title"] ?? "Título por defecto",
